@@ -103,8 +103,8 @@ export default class PickerNB extends NativeBaseComponent {
                 textStyle={this.props.textStyle}
                 style={this.props.style}
                 onPress={() => {this._setModalVisible(true)}}>
+                <Icon name="caret-down"/> 
                 {this.state.currentLabel}
-                {(this.props.iosIcon == undefined) ? <Icon name="ios-home" style={{opacity: 0}} /> : this.renderIcon()}
             </Button>
             <Modal animationType='slide'
                 transparent={false}
@@ -115,14 +115,10 @@ export default class PickerNB extends NativeBaseComponent {
                     {this.renderHeader()}
                     <Content>
                         <List dataArray={this.props.children}
+                            style={{paddingTop: 10}}
                             renderRow={(child) =>
-                                <ListItem style={{paddingVertical: 5}} iconRight button onPress={() => {this._setModalVisible(false);this.props.onValueChange(child.props.value); this.setState({current: child.props.label})}} >
-                                    <Text >{child.props.label}</Text>
-                                    {(child.props.value===this.props.selectedValue) ?
-                                        (<Icon name='ios-checkmark-outline' />)
-                                        :
-                                        (<Icon name='ios-checkmark-outline' style={{color: 'transparent'}} />)
-                                    }
+                                <ListItem style={{paddingLeft: 5, paddingRight: 5, paddingTop: 10, paddingBottom: 10}} iconRight button onPress={() => {this._setModalVisible(false);this.props.onValueChange(child.props.value); this.setState({current: child.props.label})}} >
+                                    <Text style={{color: child.props.value===this.props.selectedValue ? '#A82B51' : '#000'}}>{child.props.label}</Text>
                                 </ListItem>
                             }>
                         </List>
