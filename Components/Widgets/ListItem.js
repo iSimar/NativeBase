@@ -46,6 +46,8 @@ export default class ListItemNB extends NativeBaseComponent {
                 borderBottomWidth: this.getTheme().borderWidth,
                 height: this.getTheme().listItemHeight,
                 padding: this.getTheme().listItemPadding,
+                paddingLeft: 15,
+                paddingRight: 15,
                 backgroundColor: this.getTheme().listDividerBg,
                 justifyContent: (this.buttonPresent()) ? 'space-between' : 'flex-start',
                 flexDirection: 'row',
